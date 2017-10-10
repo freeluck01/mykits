@@ -22,11 +22,10 @@ public class SecurityInterceptor implements HandlerInterceptor {
     public void setExcludedUrls(List<String> excludedUrls) {
         this.excludedUrls = excludedUrls;
     }
-	
+
 	@Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
         String requestUri = request.getRequestURI();
-        logger.info(requestUri);
         //排除的url
         for (String url : excludedUrls) {
             if (requestUri.matches(url)) {
