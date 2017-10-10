@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<mvc:annotation-driven />
+	<!--<context:component-scan base-package="com.mykits"/>-->
+
+	<mvc:default-servlet-handler />
+
+	<mvc:resources mapping="/images/**" location="/images/"/>
+	<mvc:resources mapping="/js/**" location="/js/"/>
+	<mvc:resources mapping="/css/**" location="/css/"/>
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/*"/>
+			<mvc:mapping path="/**/**"/>
+			<ref bean="securityInterceptor"></ref>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	<bean class="com.mykits.interceptor.SecurityInterceptor" name="securityInterceptor">
+		<property name="excludedUrls">
+			<list>
+				<value>/index.html</value>
+				<value>/login.*</value>
+				<value>/res/.*</value>
+				<value>/error_404</value>
+				<value>/error_500</value>
+				<value>/favicon.ico</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="velocityConfig"
+		  class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+		<property name="resourceLoaderPath" value="/WEB-INF/vm/" />
+		<property name="velocityProperties">
+			<props>
+				<prop key="input.encoding">UTF-8</prop>
+				<prop key="output.encoding">UTF-8</prop>
+				<prop key="contentType">text/html;charset=UTF-8</prop>
+				<prop key="file.resource.loader.cache">false</prop>
+				<prop key="file.resource.loader.modificationCheckInterval">1</prop>
+				<prop key="velocimacro.library.autoreload">false</prop>
+				<prop key="velocimacro.library">macro.vm</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="velocityViewResolver"
+		  class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+		<property name="layoutUrl" value="layout/default/layout-main.vm" />
+		<property name="cache" value="false" />
+		<property name="suffix" value=".vm" />
+		<property name="contentType" value="text/html;charset=UTF-8" />
+
+		<property name="requestContextAttribute" value="request" />
+		<property name="exposeSpringMacroHelpers" value="true" />
+		<property name="dateToolAttribute" value="dateTool" />
+		<property name="numberToolAttribute" value="numberTool" />
+		<property name="toolboxConfigLocation" value="/WEB-INF/vm-toolbox.xml" />
+		<!--<property name="attributesMap" ref="_urlBuilderMap" />-->
+	</bean>
+	<util:map id="_urlBuilderMap">
+		<!--静态资源配置 用法$!staticModule.getTarget("/mall/js/common.js")-->
+		<!--<entry key="staticModule">-->
+			<!--<bean class="com.jd.common.web.url.UrlBuilder">-->
+				<!--<constructor-arg value="http://${static.domain.name}"/>-->
+			<!--</bean>-->
+		<!--</entry>-->
+	</util:map>
+
+	<!-- 文件上传 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf-8" />
+		<!-- 最大上传值，单位字节 -->
+		<property name="maxUploadSize" value="512000000" />
+		<property name="maxInMemorySize" value="40960" />
+	</bean>
+
+	<!-- 全局异常配置 b -->
+	<!--<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
+		<!--<property name="exceptionMappings">-->
+			<!--<props>-->
+				<!--<prop key="java.lang.Exception">/error/404</prop>-->
+				<!--<prop key="java.lang.Throwable">/error/404</prop>-->
+			<!--</props>-->
+		<!--</property>-->
+		<!--<property name="statusCodes">-->
+			<!--<props>-->
+				<!--<prop key="/common/err">500</prop>-->
+				<!--<prop key="/common/err">404</prop>-->
+			<!--</props>-->
+		<!--</property>-->
+		<!--&lt;!&ndash; 设置日志输出级别，默认不输出警告等错误日志信息 &ndash;&gt;-->
+		<!--<property name="warnLogCategory" value="WARN"></property>-->
+		<!--&lt;!&ndash; 默认错误页面，找不到上面mappings中异常对应视图时，使用本默认配置 &ndash;&gt;-->
+		<!--<property name="defaultErrorView" value="/error/404"></property>-->
+		<!--&lt;!&ndash; 默认HTTP状态码 &ndash;&gt;-->
+		<!--<property name="defaultStatusCode" value="500"></property>-->
+	<!--</bean>-->
+
+	<!-- 自己重写全局Exception处理器 b-->
+	<bean id="mykitsExceptionHandler" class="com.mykits.exception.SysExceptionHandler" />
+
+	<!-- 自己重写全局Exception处理器 e -->
+
+</beans>
