@@ -7,14 +7,11 @@
         <groupId>com.mykits</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <artifactId>mykits-dao</artifactId>
-
-    <properties>
-        <mybatis.version>3.2.2</mybatis.version>
-    </properties>
 
     <dependencies>
         <!-- mykits begin -->
@@ -36,17 +33,17 @@
             <artifactId>commons-beanutils</artifactId>
             <version>1.4</version>
         </dependency>
-        <dependency>
-            <groupId>com.davidkarlsen.commonstransaction.spring</groupId>
-            <artifactId>commons-transaction-spring</artifactId>
-            <version>1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-dbcp</groupId>
-            <artifactId>commons-dbcp</artifactId>
-            <version>1.4</version>
-            <scope>test</scope>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.davidkarlsen.commonstransaction.spring</groupId>-->
+            <!--<artifactId>commons-transaction-spring</artifactId>-->
+            <!--<version>1.1</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>commons-dbcp</groupId>-->
+            <!--<artifactId>commons-dbcp</artifactId>-->
+            <!--<version>1.4</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
         <!-- commons end -->
 
         <!-- mybatis begin -->
@@ -58,12 +55,12 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
-            <version>1.2.2</version>
+            <version>${mybatis.spring.version}</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.18</version>
+            <version>${mysql.connector.java.version}</version>
         </dependency>
         <!-- mybatis end -->
 

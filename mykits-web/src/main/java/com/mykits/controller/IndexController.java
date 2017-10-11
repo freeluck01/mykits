@@ -19,7 +19,6 @@ public class IndexController extends BaseController{
      */
     @RequestMapping("/")
     public String toIndexPage(){
-        log.info("打开首页");
         return "/index1.html";
     }
 
