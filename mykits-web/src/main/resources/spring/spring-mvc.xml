@@ -23,7 +23,7 @@
 	<bean class="com.mykits.interceptor.SecurityInterceptor" name="securityInterceptor">
 		<property name="excludedUrls">
 			<list>
-				<value>/index1.html</value>
+				<value>/indexPage.html</value>
 				<value>/login.*</value>
 				<value>/res/.*</value>
 				<value>/error_404</value>

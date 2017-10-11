@@ -19,7 +19,7 @@ public class IndexController extends BaseController{
      */
     @RequestMapping("/")
     public String toIndexPage(){
-        return "/index1.html";
+        return "/indexPage.html";
     }
 
 }

@@ -15,7 +15,7 @@
     <version>1.0</version>
 
     <properties>
-        <tiles.version>3.0.4</tiles.version>
+        <tiles.version>3.0.7</tiles.version>
     </properties>
 
     <dependencies>
@@ -33,21 +33,21 @@
         <!-- Spring end -->
 
         <!--tiles start-->
-        <!--<dependency>-->
-            <!--<groupId>org.apache.tiles</groupId>-->
-            <!--<artifactId>tiles-core</artifactId>-->
-            <!--<version>${tiles.version}</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.apache.tiles</groupId>-->
-            <!--<artifactId>tiles-jsp</artifactId>-->
-            <!--<version>${tiles.version}</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.apache.tiles</groupId>-->
-            <!--<artifactId>tiles-api</artifactId>-->
-            <!--<version>${tiles.version}</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-core</artifactId>
+            <version>${tiles.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-jsp</artifactId>
+            <version>${tiles.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-api</artifactId>
+            <version>${tiles.version}</version>
+        </dependency>
         <!--tiles end-->
 
         <!-- commons begin -->
