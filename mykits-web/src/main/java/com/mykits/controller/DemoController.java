@@ -27,7 +27,7 @@ public class DemoController extends BaseController{
      */
     @RequestMapping("/demo/create")
     public String create(){
-        return "/demo/create";
+        return "/demo_create";
     }
 
     /**
@@ -44,7 +44,7 @@ public class DemoController extends BaseController{
             throw e;
         }
 
-        return "/demo/success";
+        return "/demo_success";
     }
 
     /**
@@ -53,6 +53,6 @@ public class DemoController extends BaseController{
      */
     @RequestMapping(value="/demo/success")
     public String show(){
-        return "/demo/success";
+        return "/demo_success";
     }
 }

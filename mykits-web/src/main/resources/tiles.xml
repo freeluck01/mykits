@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <!-- 默认 layout 视图  -->
+    <definition name="baseLayout" template="/WEB-INF/page/templates/main.jsp">
+        <put-attribute name="layout-header" value="/WEB-INF/page/templates/header.jsp"/>
+        <put-attribute name="layout-content" value="/WEB-INF/page/templates/content.jsp"/>
+        <put-attribute name="layout-footer" value="/WEB-INF/page/templates/footer.jsp"/>
+    </definition>
+
+    <!--中间body部分动态配置
+        多级路径匹配时，此处的配置必须按从多到少的顺序配置
+    -->
+
+    <definition name="/*_*" extends="baseLayout">
+        <put-attribute name="layout-content" type="template" value="/WEB-INF/page/{1}/{2}.jsp"/>
+    </definition>
+    <definition name="/*" extends="baseLayout">
+        <put-attribute name="layout-content" type="template" value="/WEB-INF/page/{1}.jsp"/>
+    </definition>
+
+</tiles-definitions>

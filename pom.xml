@@ -10,7 +10,6 @@
     <packaging>pom</packaging>
 
     <name>mykits</name>
-    <url>http://maven.apache.org</url>
 
     <modules>
         <module>mykits-common</module>
@@ -127,15 +126,6 @@
             <version>${springframework.version}</version>
         </dependency>
         <!-- Spring end -->
-
-        <!-- http请求相关 begin -->
-        <dependency>
-            <groupId>servletapi</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.4</version>
-            <optional>true</optional>
-        </dependency>
-        <!-- http请求相关 end -->
 
     </dependencies>
 
