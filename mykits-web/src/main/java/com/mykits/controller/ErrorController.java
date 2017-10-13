@@ -15,6 +15,6 @@ public class ErrorController extends BaseController {
     @RequestMapping(method= RequestMethod.GET,value="/404")
     public String notFind(Model view){
         System.out.println("发生异常");
-        return "/error/404";
+        return "/error_404";
     }
 }

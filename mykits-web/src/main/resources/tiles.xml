@@ -12,9 +12,10 @@
     </definition>
 
     <!--中间body部分动态配置
-        多级路径匹配时，此处的配置必须按从多到少的顺序配置
-    -->
-
+        多级路径匹配时，此处的配置必须按从多到少的顺序配置-->
+    <definition name="/*_*_*" extends="baseLayout">
+        <put-attribute name="layout-content" type="template" value="/WEB-INF/page/{1}/{2}/{3}.jsp"/>
+    </definition>
     <definition name="/*_*" extends="baseLayout">
         <put-attribute name="layout-content" type="template" value="/WEB-INF/page/{1}/{2}.jsp"/>
     </definition>

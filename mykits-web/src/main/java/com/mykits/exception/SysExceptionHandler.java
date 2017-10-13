@@ -24,8 +24,7 @@ public class SysExceptionHandler implements HandlerExceptionResolver {
         if(ex instanceof BusinessException) {
             return new ModelAndView("error-business", model);
         } else {
-            System.out.println("123456789");
-            return new ModelAndView("/error/404", model);
+            return new ModelAndView("/error_404", model);
         }
     }
 }
