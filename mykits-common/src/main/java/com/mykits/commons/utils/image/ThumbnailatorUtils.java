@@ -5,7 +5,7 @@ import net.coobird.thumbnailator.geometry.Coordinate;
 import net.coobird.thumbnailator.geometry.Position;
 import net.coobird.thumbnailator.geometry.Positions;
 import net.coobird.thumbnailator.name.Rename;
-import org.apache.commons.lang3.StringUtils;
+import org.springframework.util.StringUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -85,7 +85,7 @@ public class ThumbnailatorUtils {
      * @return
      */
     public static boolean imageWatermark(String oriImgPath, String markImgPath, String targetImgPath){
-        if(StringUtils.isBlank(oriImgPath) || StringUtils.isBlank(markImgPath) || StringUtils.isBlank(targetImgPath)){
+        if(StringUtils.isEmpty(oriImgPath) || StringUtils.isEmpty(markImgPath) || StringUtils.isEmpty(targetImgPath)){
             System.out.println("原图片路径、水印图片路径和新生成图片路径中有一项或多项为空");
             return false;
         }

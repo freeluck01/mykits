@@ -110,7 +110,7 @@ public class Demo implements java.io.Serializable{
 	}
 
 	public String toString() {
-		return new ToStringBuilder(this,ToStringStyle.SIMPLE_STYLE)
+		return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE)
 			.append("Id",getId())//
 			.append("Name",getName())//
 			.append("Erp",getErp())//
@@ -135,5 +135,6 @@ public class Demo implements java.io.Serializable{
 			.append(getId(),other.getId())//
 			.isEquals();
 	}
+
 }
 

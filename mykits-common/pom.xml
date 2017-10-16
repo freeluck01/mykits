@@ -13,12 +13,6 @@
     <artifactId>mykits-common</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.3.2</version>
-        </dependency>
-
         <!-- google图片处理类库 -->
         <dependency>
             <groupId>net.coobird</groupId>
