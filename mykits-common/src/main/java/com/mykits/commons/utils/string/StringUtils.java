@@ -5,6 +5,8 @@ import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by caoxingming on 2017/10/13.
@@ -63,5 +65,10 @@ public class StringUtils {
             str = buffer.substring(0, buffer.length() - 2) + "}";
         }
         return str;
+    }
+
+    public void test(){
+        List<String> a = new ArrayList<>();
+        int one_million = 1_000_000;
     }
 }
